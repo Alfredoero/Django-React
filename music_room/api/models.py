@@ -1,0 +1,24 @@
+""" API Models """
+import string
+import random
+from django.db import models
+
+
+def generate_unique_code():
+    """ Function that generates room's unique codes"""
+    length = 6
+
+    while True:
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))  # flake8: disable=no-member
+        if Room.objects.filter(code=code).count() == 0:  # pylint: disable=no-member
+            break
+    return code
+
+
+class Room(models.Model):
+    """ Rooms Model """
+    code = models.CharField(max_length=8, default="", unique=True)
+    host = models.CharField(max_length=50, unique=True)
+    guest_can_pause = models.BooleanField(null=False, default=False)
+    votes_to_skip = models.IntegerField(null=False, default=2)
+    created_at = models.DateTimeField(auto_now_add=True)
