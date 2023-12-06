@@ -2,10 +2,11 @@
 This is the URLS file for the API app
 """
 from django.urls import path
+
 from .views import main
 
 urlpatterns = [
-    path('', main )
+    path('', main)
 ]
 
 

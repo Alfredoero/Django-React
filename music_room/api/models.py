@@ -1,6 +1,7 @@
 """ API Models """
-import string
 import random
+import string
+
 from django.db import models
 
 
@@ -9,8 +10,8 @@ def generate_unique_code():
     length = 6
 
     while True:
-        code = ''.join(random.choices(string.ascii_uppercase, k=length))  # flake8: disable=no-member
-        if Room.objects.filter(code=code).count() == 0:  # pylint: disable=no-member
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))
+        if Room.objects.filter(code=code).count() == 0:
             break
     return code
 
