@@ -2,11 +2,12 @@
 Views File for API app
 """
 from django.http import HttpResponse
+from rest_framework import generics
 
 from .models import Room
+from .serializers import RoomSerializer
 
 
-def main(request):
-    """First End Point"""
-    rooms = Room.objects.all()
-    return HttpResponse(rooms)
+class RoomView(generics.CreateAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer

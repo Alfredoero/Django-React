@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import mimetypes
 import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+mimetypes.add_type("text/css", ".css", True)
 
 load_dotenv()
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "api.apps.ApiConfig",
+    "frontend.apps.FrontendConfig",
     "rest_framework",
 ]
 

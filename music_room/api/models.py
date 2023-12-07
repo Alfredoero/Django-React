@@ -6,7 +6,7 @@ from django.db import models
 
 
 def generate_unique_code():
-    """ Function that generates room's unique codes"""
+    """ Function that generates room's unique codes """
     length = 6
 
     while True:

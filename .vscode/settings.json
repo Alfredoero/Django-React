@@ -10,14 +10,17 @@
         "--max-line-length",
         "100",
         "--per-file-ignores=music_room/music_room/settings/*.py:F403, F401",
-        "--per-file-ignores=music_room/api/*.py:F403, F401",
+        "--per-file-ignores=music_room/music_room/settings/local.py:F403, F401",
+        "--per-file-ignores=music_room/music_room/settings/production.py:F403, F401",
+        "--per-file-ignores=music_room/api/*.py:F403, F401"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
-        },
+        }
     },
-    "isort.args":["--profile", "black"],
+    "isort.args": ["--profile", "black"],
+    "python.analysis.typeCheckingMode": "basic"
 }
